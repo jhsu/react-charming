@@ -12,6 +12,7 @@ export interface CharmingProps {
 
 class Charming extends React.Component<CharmingProps, {}> {
   static defaultProps = {
+    className: 'Charming',
     letters: '',
   };
 
