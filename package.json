@@ -5,7 +5,7 @@
   "main": "lib/charming.js",
   "scripts": {
     "lint": "eslint src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "eslint src && tsc"
   },
   "author": "Joe Hsu <jhsu.x1@gmail.com> (http://twitter.com/jhsu)",
   "license": "ISC",
@@ -35,5 +35,8 @@
   },
   "files": [
     "lib/"
-  ]
+  ],
+  "dependencies": {
+    "runes": "^0.4.3"
+  }
 }

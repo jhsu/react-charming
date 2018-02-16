@@ -1,4 +1,5 @@
 import * as React from 'react';
+import runes from 'runes';
 
 interface RenderFunction {
   (letters: any[]): any
@@ -18,7 +19,7 @@ class Charming extends React.Component<CharmingProps, {}> {
 
   render() {
     const { className, letters, render } = this.props;
-    const ltrs = letters.split('');
+    const ltrs = runes(letters);
     const letterViews: any[] = ltrs.map((ltr: string, idx: number) => {
       return (<span key={idx} className={`${className}-${idx}`} aria-hidden>{ltr}</span>);
     });
