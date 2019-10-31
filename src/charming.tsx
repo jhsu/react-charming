@@ -1,32 +1,29 @@
-import * as React from 'react';
-import runes from 'runes';
+import * as React from "react";
+import runes from "runes";
+const { useMemo } = React;
 
-interface RenderFunction {
-  (letters: any[]): any
-}
-
-export interface CharmingProps {
-  className: string;
+interface ICharmingProps {
   letters: string;
-  render: RenderFunction;
+  className?: string;
 }
-
-class Charming extends React.Component<CharmingProps, {}> {
-  static defaultProps = {
-    className: 'Charming',
-    letters: '',
-  };
-
-  render() {
-    const { className, letters, render } = this.props;
+export const Charming: React.FC<ICharmingProps> = props => {
+  const { className, letters } = props;
+  const charmed = useMemo(() => {
     const ltrs = runes(letters);
-    const letterViews: any[] = ltrs.map((ltr: string, idx: number) => {
-      return (<span key={idx} className={`${className}-${idx}`} aria-hidden>{ltr}</span>);
+    return ltrs.map((ltr, idx) => {
+      return (
+        <span key={idx} className={`${className}-${idx}`} aria-hidden>
+          {ltr}
+        </span>
+      );
     });
-    return <div aria-label={letters} className={className}>
-      {render(letterViews)}
-    </div>;
-  }
-}
+  }, [letters]);
+
+  return (
+    <div aria-label={letters} {...props}>
+      {charmed}
+    </div>
+  );
+};
 
 export default Charming;

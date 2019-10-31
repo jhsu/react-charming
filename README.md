@@ -2,9 +2,8 @@
 
 based on [charming](https://github.com/yuanqing/charming)
 
+```jsx
+import Charming from 'react-charming';
 
-```javascript
-<Charming className='hello' letters={"hello there"} render={(letters) => (
-  <h1 className='hello'>{letters}</h1>
-)} />
+<Charming className='hello' letters="hello there" />
 ```

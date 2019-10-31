@@ -2,6 +2,7 @@
   "compilerOptions": {
     "outDir": "./lib/",
     "strictNullChecks": true,
+    "declaration": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "jsx": "react",
